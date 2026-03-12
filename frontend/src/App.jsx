@@ -1,22 +1,34 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import StudentList from "./pages/students/StudentList";
+import AddStudent from "./pages/students/AddStudent";
 
-function App() {
+function App(){
 
-  return (
+ const token = localStorage.getItem("token");
 
-    <BrowserRouter>
+ return(
 
-      <Routes>
+ <BrowserRouter>
 
-        <Route path="/" element={<Login />} />
+  <Routes>
 
-      </Routes>
+   <Route path="/" element={<Login/>} />
 
-    </BrowserRouter>
+   <Route path="/dashboard" element={token ? <Dashboard/> : <Login/>} />
 
-  );
+   <Route path="/students" element={token ? <StudentList/> : <Login/>} />
+
+   <Route path="/students/add" element={token ? <AddStudent/> : <Login/>} />
+
+  </Routes>
+
+ </BrowserRouter>
+
+ );
+
 }
 
 export default App;
