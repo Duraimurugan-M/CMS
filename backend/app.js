@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 
+//import routes
+import authRoutes from "./routes/authRoutes.js";
+
 
 const app = express();
 
@@ -15,6 +18,10 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json());
+
+
+// Routes
+app.use("/api/auth", authRoutes);
 
 
 
