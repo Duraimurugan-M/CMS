@@ -3,7 +3,10 @@ import cors from 'cors';
 
 //import routes
 import authRoutes from "./routes/authRoutes.js";
-
+import inventoryRoutes from "./routes/inventoryRoutes.js";
+import expenseRoutes from "./routes/expenseRoutes.js";
+import libraryRoutes from "./routes/libraryRoutes.js";
+import shopRoutes from "./routes/shopRoutes.js";
 
 const app = express();
 
@@ -22,7 +25,10 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);
-
+app.use("/api/inventory",inventoryRoutes);
+app.use("/api/expenses",expenseRoutes);
+app.use("/api/library",libraryRoutes);
+app.use("/api/shop",shopRoutes);
 
 
 export default app;
